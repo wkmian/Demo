@@ -1,11 +1,1 @@
-测试修改的东西  忘了点东西继续添加使用commit --amend 合并提交
-2.add content
-3.主分支添加东西
-4.master
-5.master 1
-6.master 2
-7.master 3
-8.master 4
-7.dev 1
-8.dev 2
-9.master =============
+测试rabase
