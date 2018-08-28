@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>熊遇上兔</title>
+		<style type="text/css">
+			*{margin:0px;padding:0px;}
+			body{
+				background-color: #f5efd0;
+			}
+			.container{
+				padding:10px;
+			}
+			#loveLetter{
+				font-size: 0.3rem;
+			}
+			.paragraph{
+				text-align: justify;
+				text-indent: 2em;
+				word-wrap:break-word; word-break:normal;
+			}
+		</style>
+		<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			(function(){
+				document.addEventListener("DOMContentLoaded",function(){
+					document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 +"px";			
+				},false)
+			})();
+			
+			(function($) {
+				$.fn.typewriter = function() {
+					this.each(function() {
+						var $ele = $(this), str = $ele.html(), progress = 0;
+						$ele.html('');
+						var timer = setInterval(function() {
+							var current = str.substr(progress, 1);
+							if (current == '<') {
+								progress = str.indexOf('>', progress) + 1;
+							} else {
+								progress++;
+							}
+							$ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
+							if (progress >= str.length) {
+								clearInterval(timer);
+							}
+						}, 100);
+					});
+					return this;
+				};
+			})(jQuery);
+		</script>
+	</head>
+	<body>
+		<div style="display: none;">
+			<audio id="bg_audio" src="http://os8u8881j.bkt.clouddn.com/%E6%9D%8E%E7%8E%89%E5%88%9A%20-%20%E5%88%9A%E5%A5%BD%E9%81%87%E8%A7%81%E4%BD%A0.mp3"></audio>
+		</div>
+		<div class="container">
+			<div id="loveLetter">
+				<div class="row">
+					<p class="paragraph">
+						在<span id="time_xiangyu"></span>天之前，兔子小姐来到的熊先生的公司来上班，她就那样安静的坐在熊先生的对面。熊先生不时抬头偷偷的看一下兔子小姐，那时候熊先生还天真的认为没有被发现。
+					</p>
+					<p class="paragraph">
+						<span id="time_yuehui"></span>天之前，熊先生约兔子小姐去爬山，那是她们第一次“约会”，第一次吃饭。熊先生本想借此机会表白的，但最终还是差了一点勇气。
+					</p>
+					<p class=paragraph>
+						两天后的一个夜晚，“歹徒先生”终于被“警察小姐”“制服”了。被“制服”的“歹徒先生”反而欣喜如狂，差点叫出声惊醒他的两个“同伙”，看着“同伙”的“歹徒先生”无法将现在的喜悦分享给他们显得有些失落。转眼间，“歹徒先生”又回到了欣喜若狂的世界中。
+					</p>
+					<p class="paragraph">
+						就是和你一起慢慢变老
+					</p>
+					<p class="paragraph">
+						我遇见你是最美丽的意外
+					</p>
+					<p class="paragraph">
+						一次就好我带你去看天荒地老
+					</p>
+					<p class="paragraph">
+						因为刚好遇见你留下十年的期许
+					</p>
+					<p class="paragraph">
+						熊先生已然不是当年青涩的他，兔子小姐则还是当年那样美丽的她。熊先生陪着兔子小姐走了<span id="time_xiangai"></span>天，当然他们还是有一辈子要走，这只是他们人生的开始而已。
+					</p>
+					<p class="paragraph">
+						熊先生说：兔子小姐，我能给你最浪漫的事，就是以后的路我继续背着你走，若是双脚断了，爬着我也背着你走。曾对你说过，不努力将会失去所有，而我努力的原因不是想得到所有，而是至少不想失去你！到谁让你是我的小苹果，怎么爱你都不嫌多。小兔子，今天七夕，当着牛郎织女的面，我熊就问你一句话，跟我走吧！
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("bg_audio").play();
+		
+		document.addEventListener("WeixinJSBridgeReady", function () {  
+            document.getElementById("bg_audio").play();
+    	}, false);  
+
+		var now_ = new Date();
+		var date_xiangyu = new Date(2015,9-1,21,0,0,0);
+		var date_yuehui = new Date(2015,11-1,8,0,0,0);
+		var date_xiangai = new Date(2015,11-1,10,0,0,0);
+		
+		var time_xiangyu = ( now_.getTime() - date_xiangyu.getTime() ) / 86400000;
+		var time_yuehui = ( now_.getTime() - date_yuehui.getTime() ) /  86400000;
+		var time_xiangai = ( now_.getTime() - date_xiangai.getTime() ) / 86400000;
+		
+		$("#time_xiangyu").html(parseInt(time_xiangyu));
+		$("#time_yuehui").html(parseInt(time_yuehui));
+		$("#time_xiangai").html(parseInt(time_xiangai));
+		
+		
+		
+		$("#loveLetter").typewriter();
+	</script>
+</html>
